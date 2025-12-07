@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Flow Command Center - Never Run Out of Money Again</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero .subheadline {
+            font-size: 24px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #fbbf24;
+            color: #1f2937;
+            padding: 18px 50px;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .price-tag {
+            margin-top: 15px;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        /* Pain Points Section */
+        .pain-points {
+            padding: 80px 20px;
+            background: #f9fafb;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #1f2937;
+        }
+        
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .pain-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            border-left: 4px solid #ef4444;
+        }
+        
+        .pain-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #ef4444;
+        }
+        
+        .stat-highlight {
+            background: #fef3c7;
+            border-left: 4px solid #fbbf24;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .stat-highlight p {
+            font-size: 18px;
+            font-weight: 600;
+            color: #92400e;
+        }
+        
+        /* Solution Section */
+        .solution {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .solution-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .solution-intro h2 {
+            font-size: 42px;
+            color: #1f2937;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .solution-intro p {
+            font-size: 20px;
+            color: #6b7280;
+        }
+        
+        /* Features with Screenshots */
+        .feature-showcase {
+            display: grid;
+            gap: 60px;
+            margin-top: 60px;
+        }
+        
+        .feature-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .feature-item:nth-child(even) {
+            direction: rtl;
+        }
+        
+        .feature-item:nth-child(even) > * {
+            direction: ltr;
+        }
+        
+        .feature-content h3 {
+            font-size: 28px;
+            color: #1f2937;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .feature-content p {
+            font-size: 18px;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+        
+        .feature-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-content ul li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 16px;
+            color: #4b5563;
+        }
+        
+        .feature-content ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .feature-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            background: #f3f4f6;
+        }
+        
+        .feature-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Benefits Grid */
+        .benefits {
+            padding: 80px 20px;
+            background: #f9fafb;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #1f2937;
+        }
+        
+        .benefit-card p {
+            color: #6b7280;
+            font-size: 16px;
+        }
+        
+        /* Guarantee Section */
+        .guarantee {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .guarantee h2 {
+            font-size: 38px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .guarantee p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+        
+        .guarantee-badge {
+            display: inline-block;
+            background: white;
+            color: #059669;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        
+        /* CTA Section */
+        .final-cta {
+            padding: 80px 20px;
+            background: #1f2937;
+            color: white;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .final-cta p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .price-box {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 500px;
+            margin: 40px auto;
+            backdrop-filter: blur(10px);
+        }
+        
+        .price-box .price {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #fbbf24;
+        }
+        
+        .price-box .price-note {
+            font-size: 16px;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+        
+        /* FAQ */
+        .faq {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .faq-item {
+            background: #f9fafb;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .faq-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #1f2937;
+        }
+        
+        .faq-item p {
+            color: #6b7280;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 20px;
+            background: #f9fafb;
+            text-align: center;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero .subheadline {
+                font-size: 18px;
+            }
+            
+            .feature-item {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-item:nth-child(even) {
+                direction: ltr;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .price-box .price {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>🍔 Stop Running Out of Money.<br>Know Your Restaurant's Cash Flow in 5 Minutes.</h1>
+            <p class="subheadline">Complete financial clarity without the $200/month accounting software</p>
+            <a href="https://irfanmentor.gumroad.com/l/jjwjx" class="cta-button">Get Instant Access Now →</a>
+            <p class="price-tag">One-time payment of $97 • Lifetime access • 30-day guarantee</p>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section class="pain-points">
+        <div class="container">
+            <h2 class="section-title">❌ Sound Familiar?</h2>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <h3>💸 Cash Anxiety</h3>
+                    <p>"I have no idea if I'll have enough cash for rent next month"</p>
+                </div>
+                <div class="pain-card">
+                    <h3>📊 Spreadsheet Hell</h3>
+                    <p>"I'm drowning in Excel files but still can't see the big picture"</p>
+                </div>
+                <div class="pain-card">
+                    <h3>🍕 Food Cost Chaos</h3>
+                    <p>"My food costs are out of control and eating all my profit"</p>
+                </div>
+                <div class="pain-card">
+                    <h3>💰 Software Overload</h3>
+                    <p>"QuickBooks costs $200/month and I barely use half the features"</p>
+                </div>
+            </div>
+            
+            <div class="stat-highlight">
+                <p>📉 82% of restaurant owners struggle with cash flow management<br>
+                💀 29% run out of money before breaking even</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="solution">
+        <div class="container">
+            <div class="solution-intro">
+                <h2>✅ Introducing: Cash Flow Command Center</h2>
+                <p>A simple Notion template that gives you complete cash flow clarity in 5 minutes—no accounting degree required.</p>
+            </div>
+
+            <div class="feature-showcase">
+                <!-- Feature 1: Dashboard -->
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <h3>💰 Your Financial Control Room</h3>
+                        <p><strong>See your complete cash position at a glance.</strong></p>
+                        <ul>
+                            <li>Total cash balance updated in real-time</li>
+                            <li>This week's income vs expenses</li>
+                            <li>Net position with color-coded safety alerts</li>
+                            <li>"Days Until $0" calculator—never get caught off guard</li>
+                            <li>5-minute weekly update routine (not 3 hours!)</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <img src="https://i.imgur.com/BqKZX9m.png" alt="Cash Flow Command Center Dashboard">
+                    </div>
+                </div>
+
+                <!-- Feature 2: Income Tracker -->
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <h3>💵 Track Every Dollar Coming In</h3>
+                        <p><strong>Know exactly where your revenue comes from.</strong></p>
+                        <ul>
+                            <li>Track by location (Branch A, B, C)</li>
+                            <li>Separate by customer type (Dine-in, Takeaway, Delivery)</li>
+                            <li>Monitor income streams (Regular, Corporate, Catering)</li>
+                            <li>Expected vs actual revenue tracking</li>
+                            <li>Monthly calendar view to spot patterns</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <img src="https://i.imgur.com/qY8nL5K.png" alt="Income Tracker Dashboard">
+                    </div>
+                </div>
+
+                <!-- Feature 3: Expense Tracker -->
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <h3>💸 Smart Expense Management</h3>
+                        <p><strong>Pre-loaded with 20+ restaurant-specific categories.</strong></p>
+                        <ul>
+                            <li>Labor costs (Chef salaries, staff wages)</li>
+                            <li>Food & beverage costs (COGS tracking)</li>
+                            <li>Utilities, rent, maintenance</li>
+                            <li>Payment method tracking</li>
+                            <li>Vendor/payee management</li>
+                            <li>Checkbox to mark paid vs pending</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <img src="https://i.imgur.com/8KzLmDh.png" alt="Expense Tracker Dashboard">
+                    </div>
+                </div>
+
+                <!-- Feature 4: Forecast -->
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <h3>🔮 90-Day Cash Forecasting</h3>
+                        <p><strong>Answer the question: "Will I run out of money?"</strong></p>
+                        <ul>
+                            <li>Week-by-week cash projection</li>
+                            <li>Starting balance + expected income</li>
+                            <li>Minus expected expenses</li>
+                            <li>Ending balance with trend analysis</li>
+                            <li>Multiple view options (timeline, calendar, analysis)</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <img src="https://i.imgur.com/vXw4RJm.png" alt="Forecast Tracker">
+                    </div>
+                </div>
+
+                <!-- Feature 5: Scenario Planner -->
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <h3>🎮 Test Before You Commit</h3>
+                        <p><strong>Make smarter decisions with scenario planning.</strong></p>
+                        <ul>
+                            <li>Major Equipment Failure? See the cash impact</li>
+                            <li>Food Cost Increase? Plan your response</li>
+                            <li>Seasonal Revenue Drop? Prepare in advance</li>
+                            <li>Sort by risk level or cash impact</li>
+                            <li>Timeline view to see when problems hit</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <img src="https://i.imgur.com/H5JYnKp.png" alt="Scenario Planner">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">💎 What You Get</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">⏰</div>
+                    <h3>Get Your Time Back</h3>
+                    <p><strong>Before:</strong> 3-4 hours weekly<br>
+                    <strong>After:</strong> 10 minutes weekly<br>
+                    = 12-15 hours saved monthly</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Save Real Money</h3>
+                    <p>10-15% reduction in unnecessary expenses<br>
+                    Average savings: $1,500-$3,000/month<br>
+                    ROI: Pays for itself in week 1</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Make Better Decisions</h3>
+                    <p>No more surprise cash shortages<br>
+                    Better profit visibility<br>
+                    Smarter pricing & purchasing</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">📱</div>
+                    <h3>Works Everywhere</h3>
+                    <p>Desktop, mobile, tablet<br>
+                    Share with your team<br>
+                    Export to PDF/Excel anytime</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎁</div>
+                    <h3>Bonus Materials</h3>
+                    <p>15-minute video walkthrough<br>
+                    5-minute quick start guide<br>
+                    20 pre-loaded categories</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🆓</div>
+                    <h3>No Subscriptions</h3>
+                    <p>One-time payment<br>
+                    Lifetime access<br>
+                    Free updates forever</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee -->
+    <section class="guarantee">
+        <div class="container">
+            <h2>🛡️ Zero-Risk 30-Day Guarantee</h2>
+            <p>Try it for 30 days. If it doesn't save you at least 10 hours OR $500, email me for a full refund.</p>
+            <p><strong>No questions asked. No hoops to jump through.</strong></p>
+            <div class="guarantee-badge">You Literally Cannot Lose</div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="buy">
+        <div class="container">
+            <h2>🔥 Get Complete Cash Flow Clarity Today</h2>
+            <p>Stop worrying about running out of money—get complete cash flow clarity</p>
+            
+            <div class="price-box">
+                <div class="price">$97</div>
+                <p class="price-note">One-time payment • Lifetime access • No subscriptions</p>
+                <a href="https://irfanmentor.gumroad.com/l/jjwjx" class="cta-button">Get Instant Access Now →</a>
+            </div>
+            
+            <p style="margin-top: 30px; opacity: 0.8;">✓ Instant download • ✓ Works on free Notion • ✓ 30-day guarantee</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">❓ Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h3>Do I need Notion experience?</h3>
+                <p>Nope! If you can use Google Sheets, you can use this. Plus, we include a full 15-minute video tutorial walking you through everything.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Will this work for my cafe/food truck/pizza shop?</h3>
+                <p>Absolutely! Works for ANY food service business. All categories are fully customizable to match your specific operation.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>What if I have multiple locations?</h3>
+                <p>Perfect! The system is built specifically for multi-location owners. Track each location separately AND see combined overview.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Is this better than QuickBooks?</h3>
+                <p>Different purpose. QuickBooks = full accounting suite ($200/month). This = laser-focused on cash flow clarity ($97 lifetime). Many users have both and use this for daily cash management.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Do I need to pay for Notion?</h3>
+                <p>No! Notion is 100% free for personal use. This template works perfectly on the free plan.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Can my accountant access this?</h3>
+                <p>Yes! You can share Notion access with your team or accountant, or export reports to PDF/Excel anytime.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>What if I'm not tech-savvy?</h3>
+                <p>This is designed for restaurant owners, not accountants. If you can send an email, you can use this. Setup takes just 15 minutes with our guide.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>What's included exactly?</h3>
+                <p>✓ Complete Notion template system<br>
+                ✓ 10-page setup guide (PDF)<br>
+                ✓ 15-minute video walkthrough<br>
+                ✓ Quick start checklist<br>
+                ✓ 6 pre-built scenario templates<br>
+                ✓ Lifetime free updates<br>
+                ✓ Email support</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="hero" style="padding: 60px 20px;">
+        <div class="container">
+            <h2 style="font-size: 36px; margin-bottom: 20px;">Ready to Never Run Out of Money Again?</h2>
+            <a href="https://irfanmentor.gumroad.com/l/jjwjx" class="cta-button">Get Instant Access - $97 →</a>
+            <p class="price-tag">30-day money-back guarantee • Instant delivery • Lifetime access</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Questions? Email me at <a href="mailto:imentor923@gmail.com">imentor923@gmail.com</a></p>
+            <p style="margin-top: 10px;">© 2024 Cash Flow Command Center. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
